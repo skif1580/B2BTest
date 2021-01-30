@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">B2BTest</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="privat_bank">ПриватБанк</string>
+    <string name="currency">Валюта</string>
+    <string name="buy">Покупка</string>
+    <string name="sell">Продажа</string>
+    <string name="NBY">НБУ</string>
+    <string name="exchange_rate">Курсы валют</string>
 </resources>
