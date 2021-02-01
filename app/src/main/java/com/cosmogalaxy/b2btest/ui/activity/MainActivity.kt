@@ -23,7 +23,6 @@ class MainActivity : AppCompatActivity(), CurrencySelectionInteraction {
     private fun initUI(savedInstanceState: Bundle?) {
         initToolbar()
         initFragments(savedInstanceState)
-
     }
 
     private fun initToolbar() {
@@ -49,8 +48,8 @@ class MainActivity : AppCompatActivity(), CurrencySelectionInteraction {
     }
 
     override fun onCurrencySelectChanged(currency: String) {
-        val fragment =supportFragmentManager.findFragmentByTag(NbuFragment.tag)
-        if (fragment!=null && fragment is CurrencySelectionInteraction)
+        val fragment = supportFragmentManager.findFragmentByTag(NbuFragment.tag)
+        if (fragment != null && fragment is CurrencySelectionInteraction)
             fragment.onCurrencySelectChanged(currency)
     }
 }

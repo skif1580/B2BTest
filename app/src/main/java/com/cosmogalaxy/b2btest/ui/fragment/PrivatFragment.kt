@@ -70,12 +70,13 @@ class PrivatFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        retainInstance = true
         initUi(view)
         viewModel.privateState.observe(viewLifecycleOwner, this::setState)
     }
 
     private fun initUi(view: View) {
-        binding.rvCurrencyPrivat.apply {
+        binding.recycler.apply {
             adapter = mAdapter
             layoutManager = LinearLayoutManager(view.context, LinearLayoutManager.VERTICAL, false)
         }
@@ -123,17 +124,17 @@ class PrivatFragment : Fragment() {
     }
 
     private fun showDefaultState() {
-        binding.prPrivat.visibility = GONE
-        binding.rvCurrencyPrivat.visibility = GONE
+        binding.progressBar.visibility = GONE
+        binding.recycler.visibility = GONE
     }
 
     private fun showLoadState() {
-        binding.prPrivat.isVisible = true
+        binding.recycler.isVisible = true
     }
 
     private fun showSuccessState(data: List<PrivatCurrency>) {
-        binding.prPrivat.visibility = GONE
-        binding.rvCurrencyPrivat.visibility = VISIBLE
+        binding.progressBar.visibility = GONE
+        binding.recycler.visibility = VISIBLE
         mAdapter.showData(data)
         showCurrentDate()
     }
@@ -146,8 +147,8 @@ class PrivatFragment : Fragment() {
     }
 
     private fun showErrorState(error: String) {
-        binding.rvCurrencyPrivat.isVisible = false
-        binding.prPrivat.isVisible = false
+        binding.recycler.isVisible = false
+        binding.progressBar.isVisible = false
         Toast.makeText(this.context, error, Toast.LENGTH_SHORT).show()
     }
 

@@ -30,7 +30,8 @@ class NBUAdapter : RecyclerView.Adapter<NBUAdapter.ViewHolder>(), CurrencySelect
                     if (position % 2 == 0)
                         root.resources.getColor(R.color.teal_700_10)
                     else
-                        Color.TRANSPARENT)
+                        Color.TRANSPARENT
+                )
                 placeHolder.setBackgroundColor(
                     if (position == selectedIndex)
                         root.resources.getColor(R.color.teal_700_20)
@@ -48,6 +49,7 @@ class NBUAdapter : RecyclerView.Adapter<NBUAdapter.ViewHolder>(), CurrencySelect
 
     fun swapData(list: List<NbuCurrency>) {
         data = list
+        selectedIndex = -1
         notifyDataSetChanged()
     }
 
